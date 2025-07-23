@@ -14,5 +14,8 @@ export default defineConfig({
       // Alias for easier imports
       '@': '../src'
     }
+  },
+  css: {
+    postcss: '../postcss.config.js'
   }
 });

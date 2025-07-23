@@ -5,7 +5,7 @@ export type InputSize = 'sm' | 'md' | 'lg';
 
 @Component({
   tag: 'ds-input',
-  shadow: true,
+  shadow: false,
 })
 export class Input {
   private inputElement?: HTMLInputElement;

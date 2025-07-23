@@ -1,8 +1,17 @@
 import { Config } from '@stencil/core';
+import { postcss } from '@stencil-community/postcss';
 
 export const config: Config = {
   namespace: 'design-system',
   globalStyle: 'src/styles/base.css',
+  plugins: [
+    postcss({
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
+    }),
+  ],
   outputTargets: [
     {
       type: 'dist',
@@ -22,6 +31,6 @@ export const config: Config = {
     },
   ],
   testing: {
-    browserHeadless: "new",
+    browserHeadless: true,
   },
 };

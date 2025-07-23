@@ -32,6 +32,7 @@
     "@stencil/core": "^4.12.0"
   },
   "devDependencies": {
+    "@stencil-community/postcss": "^2.2.0",
     "@storybook/addon-essentials": "^7.6.0",
     "@storybook/addon-links": "^7.6.0",
     "@storybook/blocks": "^7.6.0",

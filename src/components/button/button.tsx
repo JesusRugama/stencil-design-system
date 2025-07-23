@@ -5,7 +5,7 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
 
 @Component({
   tag: 'ds-button',
-  shadow: true,
+  shadow: false,
 })
 export class Button {
   /**
