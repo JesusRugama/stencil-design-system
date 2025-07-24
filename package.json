@@ -1,6 +1,6 @@
 {
   "name": "@jesusrugama/stencil-design-system",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "A modern, framework-agnostic design system built with Stencil",
   "type": "module",
   "main": "dist/index.cjs.js",
