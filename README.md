@@ -17,7 +17,7 @@ A modern, framework-agnostic design system built with Stencil and Tailwind CSS.
 ### Installation
 
 ```bash
-npm install @yourorg/design-system
+npm install @jesusrugama/stencil-design-system
 ```
 
 ### Usage
@@ -28,7 +28,7 @@ npm install @yourorg/design-system
 <!DOCTYPE html>
 <html>
 <head>
-  <script type="module" src="https://unpkg.com/@yourorg/design-system/dist/design-system/design-system.esm.js"></script>
+  <script type="module" src="https://unpkg.com/@jesusrugama/stencil-design-system/dist/design-system/design-system.esm.js"></script>
 </head>
 <body>
   <ds-button variant="primary">Click me</ds-button>
@@ -40,7 +40,7 @@ npm install @yourorg/design-system
 #### React
 
 ```jsx
-import { defineCustomElements } from '@yourorg/design-system/loader';
+import { defineCustomElements } from '@jesusrugama/stencil-design-system/loader';
 
 // Call this once in your app
 defineCustomElements();
@@ -66,7 +66,7 @@ function App() {
 </template>
 
 <script>
-import { defineCustomElements } from '@yourorg/design-system/loader';
+import { defineCustomElements } from '@jesusrugama/stencil-design-system/loader';
 
 defineCustomElements();
 </script>
@@ -83,8 +83,8 @@ defineCustomElements();
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourorg/design-system.git
-cd design-system
+git clone https://github.com/@jesusrugama/stencil-design-system.git
+cd stencil-design-system
 
 # Install dependencies
 npm install

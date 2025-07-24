@@ -1,7 +1,70 @@
 import { Component, Prop, h, Host, Event, EventEmitter, State, Watch } from '@stencil/core';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 export type InputType = 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search';
 export type InputSize = 'sm' | 'md' | 'lg';
+
+// CVA variant definitions for Input
+const inputContainerVariants = cva(
+  // Base classes for container
+  [
+    'relative',
+    'border',
+    'rounded-md',
+    'bg-white',
+    'ds-transition',
+  ],
+  {
+    variants: {
+      state: {
+        default: ['border-secondary-300', 'hover:border-secondary-400'],
+        focused: ['border-primary-500', 'ring-2', 'ring-primary-100'],
+        error: ['border-error-500'],
+        errorFocused: ['border-error-500', 'ring-2', 'ring-error-100'],
+      },
+      disabled: {
+        true: ['bg-secondary-50', 'border-secondary-200', 'cursor-not-allowed'],
+      },
+    },
+    defaultVariants: {
+      state: 'default',
+    },
+  }
+);
+
+const inputFieldVariants = cva(
+  // Base classes for input field
+  [
+    'w-full',
+    'border-none',
+    'outline-none',
+    'bg-transparent',
+    'text-secondary-900',
+    'placeholder-secondary-400',
+    'font-inherit',
+  ],
+  {
+    variants: {
+      size: {
+        sm: ['px-3', 'py-2', 'text-sm', 'leading-5'],
+        md: ['px-3', 'py-2.5', 'text-sm', 'leading-5'],
+        lg: ['px-4', 'py-3', 'text-base', 'leading-6'],
+      },
+      disabled: {
+        true: ['text-secondary-500', 'cursor-not-allowed', 'placeholder-secondary-300'],
+      },
+      readonly: {
+        true: ['cursor-default'],
+      },
+    },
+    defaultVariants: {
+      size: 'md',
+    },
+  }
+);
+
+export type InputContainerVariantProps = VariantProps<typeof inputContainerVariants>;
+export type InputFieldVariantProps = VariantProps<typeof inputFieldVariants>;
 
 @Component({
   tag: 'ds-input',
@@ -126,65 +189,28 @@ export class Input {
   };
 
   private getContainerClasses() {
-    const baseClasses = [
-      'relative',
-      'border',
-      'rounded-md',
-      'bg-white',
-      'ds-transition',
-    ];
-
-    // State classes
-    const stateClasses = [];
-    if (this.focused && !this.error) {
-      stateClasses.push('border-primary-500', 'ring-2', 'ring-primary-100');
+    let state: 'default' | 'focused' | 'error' | 'errorFocused' = 'default';
+    
+    if (this.error && this.focused) {
+      state = 'errorFocused';
     } else if (this.error) {
-      stateClasses.push('border-error-500');
-      if (this.focused) {
-        stateClasses.push('ring-2', 'ring-error-100');
-      }
-    } else {
-      stateClasses.push('border-secondary-300', 'hover:border-secondary-400');
+      state = 'error';
+    } else if (this.focused) {
+      state = 'focused';
     }
 
-    if (this.disabled) {
-      stateClasses.push('bg-secondary-50', 'border-secondary-200', 'cursor-not-allowed');
-    }
-
-    return [...baseClasses, ...stateClasses].join(' ');
+    return inputContainerVariants({
+      state,
+      disabled: this.disabled,
+    });
   }
 
   private getInputClasses() {
-    const baseClasses = [
-      'w-full',
-      'border-none',
-      'outline-none',
-      'bg-transparent',
-      'text-secondary-900',
-      'placeholder-secondary-400',
-      'font-inherit',
-    ];
-
-    // Size classes
-    const sizeClasses = {
-      sm: ['px-3', 'py-2', 'text-sm', 'leading-5'],
-      md: ['px-3', 'py-2.5', 'text-sm', 'leading-5'],
-      lg: ['px-4', 'py-3', 'text-base', 'leading-6'],
-    };
-
-    const stateClasses = [];
-    if (this.disabled) {
-      stateClasses.push('text-secondary-500', 'cursor-not-allowed', 'placeholder-secondary-300');
-    }
-    if (this.readonly) {
-      stateClasses.push('cursor-default');
-    }
-
-    return [
-      ...baseClasses,
-      ...sizeClasses[this.size],
-      ...stateClasses,
-    ].join(' ');
+    return inputFieldVariants({
+      size: this.size,
+      disabled: this.disabled,
+      readonly: this.readonly,
+    });
   }
 
   render() {

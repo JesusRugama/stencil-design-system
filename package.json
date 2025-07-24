@@ -1,5 +1,5 @@
 {
-  "name": "@yourorg/design-system",
+  "name": "@jesusrugama/stencil-design-system",
   "version": "0.1.0",
   "description": "A modern, framework-agnostic design system built with Stencil",
   "main": "dist/index.cjs.js",
@@ -12,7 +12,7 @@
   "unpkg": "dist/design-system/design-system.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourorg/design-system.git"
+    "url": "https://github.com/JesusRugama/stencil-design-system.git"
   },
   "files": [
     "dist/",
@@ -29,7 +29,8 @@
     "playground": "vite playground --port 3001"
   },
   "dependencies": {
-    "@stencil/core": "^4.12.0"
+    "@stencil/core": "^4.12.0",
+    "class-variance-authority": "^0.7.1"
   },
   "devDependencies": {
     "@stencil-community/postcss": "^2.2.0",
