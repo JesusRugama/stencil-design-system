@@ -117,6 +117,12 @@ export namespace Components {
          */
         "value": string;
     }
+    interface DsSpinner {
+        /**
+          * @default 'md'
+         */
+        "size": 'sm' | 'md' | 'lg';
+    }
 }
 export interface DsInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -148,9 +154,16 @@ declare global {
         prototype: HTMLDsInputElement;
         new (): HTMLDsInputElement;
     };
+    interface HTMLDsSpinnerElement extends Components.DsSpinner, HTMLStencilElement {
+    }
+    var HTMLDsSpinnerElement: {
+        prototype: HTMLDsSpinnerElement;
+        new (): HTMLDsSpinnerElement;
+    };
     interface HTMLElementTagNameMap {
         "ds-button": HTMLDsButtonElement;
         "ds-input": HTMLDsInputElement;
+        "ds-spinner": HTMLDsSpinnerElement;
     }
 }
 declare namespace LocalJSX {
@@ -273,9 +286,16 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface DsSpinner {
+        /**
+          * @default 'md'
+         */
+        "size"?: 'sm' | 'md' | 'lg';
+    }
     interface IntrinsicElements {
         "ds-button": DsButton;
         "ds-input": DsInput;
+        "ds-spinner": DsSpinner;
     }
 }
 export { LocalJSX as JSX };
@@ -284,6 +304,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "ds-button": LocalJSX.DsButton & JSXBase.HTMLAttributes<HTMLDsButtonElement>;
             "ds-input": LocalJSX.DsInput & JSXBase.HTMLAttributes<HTMLDsInputElement>;
+            "ds-spinner": LocalJSX.DsSpinner & JSXBase.HTMLAttributes<HTMLDsSpinnerElement>;
         }
     }
 }
