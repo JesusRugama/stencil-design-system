@@ -1,0 +1,9 @@
+dist/
+www/
+loader/
+node_modules/
+.stencil/
+storybook-static/
+package-lock.json
+*.min.js
+*.min.css

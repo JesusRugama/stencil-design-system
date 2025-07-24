@@ -2,6 +2,7 @@
   "name": "@jesusrugama/stencil-design-system",
   "version": "0.1.1",
   "description": "A modern, framework-agnostic design system built with Stencil",
+  "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -26,13 +27,19 @@
     "generate": "stencil generate",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "playground": "vite playground --port 3001"
+    "playground": "vite playground --port 3001",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,scss,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css,scss,md}\"",
+    "lint:all": "npm run lint && npm run format:check"
   },
   "dependencies": {
     "@stencil/core": "^4.12.0",
     "class-variance-authority": "^0.7.1"
   },
   "devDependencies": {
+    "@eslint/js": "^9.31.0",
     "@stencil-community/postcss": "^2.2.0",
     "@storybook/addon-essentials": "^7.6.0",
     "@storybook/addon-links": "^7.6.0",
@@ -41,7 +48,11 @@
     "@storybook/html-vite": "^7.6.0",
     "@types/jest": "^29.5.0",
     "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
     "autoprefixer": "^10.4.0",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.8",
     "jest": "^29.5.0",
     "jest-cli": "^29.5.0",
     "lit": "^3.0.0",
