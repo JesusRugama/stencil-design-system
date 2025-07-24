@@ -14,13 +14,21 @@ const ButtonTemplate = (args: any) => `
   </ds-button>
 `;
 
-const ButtonGroupTemplate = (buttons: Array<{variant?: string, size?: string, children: string}>) => `
+const ButtonGroupTemplate = (
+  buttons: Array<{ variant?: string; size?: string; children: string }>
+) => `
   <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-    ${buttons.map(btn => `
-      <ds-button variant="${btn.variant || 'primary'}" size="${btn.size || 'md'}">
+    ${buttons
+      .map(
+        btn => `
+      <ds-button variant="${btn.variant || 'primary'}" size="${
+          btn.size || 'md'
+        }">
         ${btn.children}
       </ds-button>
-    `).join('')}
+    `
+      )
+      .join('')}
   </div>
 `;
 
@@ -68,7 +76,7 @@ export const Primary: Story = {
     loading: false,
     type: 'button',
   },
-  render: (args) => ButtonTemplate(args),
+  render: args => ButtonTemplate(args),
 };
 
 export const Secondary: Story = {
@@ -123,18 +131,20 @@ export const FullWidth: Story = {
 };
 
 export const Sizes: Story = {
-  render: () => ButtonGroupTemplate([
-    { variant: 'primary', size: 'sm', children: 'Small' },
-    { variant: 'primary', size: 'md', children: 'Medium' },
-    { variant: 'primary', size: 'lg', children: 'Large' }
-  ]),
+  render: () =>
+    ButtonGroupTemplate([
+      { variant: 'primary', size: 'sm', children: 'Small' },
+      { variant: 'primary', size: 'md', children: 'Medium' },
+      { variant: 'primary', size: 'lg', children: 'Large' },
+    ]),
 };
 
 export const Variants: Story = {
-  render: () => ButtonGroupTemplate([
-    { variant: 'primary', children: 'Primary' },
-    { variant: 'secondary', children: 'Secondary' },
-    { variant: 'ghost', children: 'Ghost' },
-    { variant: 'danger', children: 'Danger' }
-  ]),
+  render: () =>
+    ButtonGroupTemplate([
+      { variant: 'primary', children: 'Primary' },
+      { variant: 'secondary', children: 'Secondary' },
+      { variant: 'ghost', children: 'Ghost' },
+      { variant: 'danger', children: 'Danger' },
+    ]),
 };

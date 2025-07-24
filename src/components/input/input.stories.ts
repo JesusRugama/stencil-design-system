@@ -19,7 +19,9 @@ const InputTemplate = (args: any) => `
   ></ds-input>
 `;
 
-const InputGroupTemplate = (inputs: Array<{label: string, [key: string]: any}>) => `
+const InputGroupTemplate = (
+  inputs: Array<{ label: string; [key: string]: any }>
+) => `
   <div style="display: flex; flex-direction: column; gap: 1rem; width: 300px;">
     ${inputs.map(input => InputTemplate(input)).join('')}
   </div>
@@ -87,7 +89,7 @@ export const Default: Story = {
     helperText: '',
     fullWidth: false,
   },
-  render: (args) => InputTemplate(args),
+  render: args => InputTemplate(args),
 };
 
 export const WithError: Story = {
@@ -154,21 +156,23 @@ export const FullWidth: Story = {
 };
 
 export const Sizes: Story = {
-  render: () => InputGroupTemplate([
-    { size: 'sm', label: 'Small', placeholder: 'Small input' },
-    { size: 'md', label: 'Medium', placeholder: 'Medium input' },
-    { size: 'lg', label: 'Large', placeholder: 'Large input' }
-  ]),
+  render: () =>
+    InputGroupTemplate([
+      { size: 'sm', label: 'Small', placeholder: 'Small input' },
+      { size: 'md', label: 'Medium', placeholder: 'Medium input' },
+      { size: 'lg', label: 'Large', placeholder: 'Large input' },
+    ]),
 };
 
 export const InputTypes: Story = {
-  render: () => InputGroupTemplate([
-    { type: 'text', label: 'Text', placeholder: 'Enter text' },
-    { type: 'email', label: 'Email', placeholder: 'Enter email' },
-    { type: 'password', label: 'Password', placeholder: 'Enter password' },
-    { type: 'number', label: 'Number', placeholder: 'Enter number' },
-    { type: 'tel', label: 'Phone', placeholder: 'Enter phone number' },
-    { type: 'url', label: 'URL', placeholder: 'Enter URL' },
-    { type: 'search', label: 'Search', placeholder: 'Search...' }
-  ]),
+  render: () =>
+    InputGroupTemplate([
+      { type: 'text', label: 'Text', placeholder: 'Enter text' },
+      { type: 'email', label: 'Email', placeholder: 'Enter email' },
+      { type: 'password', label: 'Password', placeholder: 'Enter password' },
+      { type: 'number', label: 'Number', placeholder: 'Enter number' },
+      { type: 'tel', label: 'Phone', placeholder: 'Enter phone number' },
+      { type: 'url', label: 'URL', placeholder: 'Enter URL' },
+      { type: 'search', label: 'Search', placeholder: 'Search...' },
+    ]),
 };

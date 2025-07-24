@@ -13,7 +13,7 @@ export const colors = {
     900: '#1e3a8a',
     950: '#172554',
   },
-  
+
   // Secondary colors
   secondary: {
     50: '#f8fafc',
@@ -28,7 +28,7 @@ export const colors = {
     900: '#0f172a',
     950: '#020617',
   },
-  
+
   // Semantic colors
   success: {
     50: '#f0fdf4',
@@ -42,7 +42,7 @@ export const colors = {
     800: '#166534',
     900: '#14532d',
   },
-  
+
   warning: {
     50: '#fffbeb',
     100: '#fef3c7',
@@ -55,7 +55,7 @@ export const colors = {
     800: '#92400e',
     900: '#78350f',
   },
-  
+
   error: {
     50: '#fef2f2',
     100: '#fee2e2',
@@ -68,7 +68,7 @@ export const colors = {
     800: '#991b1b',
     900: '#7f1d1d',
   },
-  
+
   // Neutral colors
   neutral: {
     50: '#fafafa',
@@ -83,7 +83,7 @@ export const colors = {
     900: '#171717',
     950: '#0a0a0a',
   },
-  
+
   // Special colors
   white: '#ffffff',
   black: '#000000',

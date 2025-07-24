@@ -26,7 +26,9 @@ describe('ds-button', () => {
       components: [Button],
       html: `<ds-button variant="secondary">Click me</ds-button>`,
     });
-    expect(page.root.shadowRoot.querySelector('button')).toHaveClass('button--secondary');
+    expect(page.root.shadowRoot.querySelector('button')).toHaveClass(
+      'button--secondary'
+    );
   });
 
   it('renders with size', async () => {
@@ -34,7 +36,9 @@ describe('ds-button', () => {
       components: [Button],
       html: `<ds-button size="lg">Click me</ds-button>`,
     });
-    expect(page.root.shadowRoot.querySelector('button')).toHaveClass('button--lg');
+    expect(page.root.shadowRoot.querySelector('button')).toHaveClass(
+      'button--lg'
+    );
   });
 
   it('renders disabled state', async () => {
@@ -42,7 +46,9 @@ describe('ds-button', () => {
       components: [Button],
       html: `<ds-button disabled>Click me</ds-button>`,
     });
-    expect(page.root.shadowRoot.querySelector('button')).toHaveAttribute('disabled');
+    expect(page.root.shadowRoot.querySelector('button')).toHaveAttribute(
+      'disabled'
+    );
   });
 
   it('renders loading state', async () => {
@@ -61,6 +67,8 @@ describe('ds-button', () => {
       components: [Button],
       html: `<ds-button full-width>Click me</ds-button>`,
     });
-    expect(page.root.shadowRoot.querySelector('button')).toHaveClass('button--full-width');
+    expect(page.root.shadowRoot.querySelector('button')).toHaveClass(
+      'button--full-width'
+    );
   });
 });

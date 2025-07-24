@@ -11,7 +11,19 @@
   }
 
   html {
-    font-family: var(--ds-font-family-sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif);
+    font-family: var(
+      --ds-font-family-sans,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      'Noto Sans',
+      sans-serif
+    );
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     -moz-tab-size: 4;
@@ -30,7 +42,7 @@
   .ds-focus-ring {
     @apply outline-none focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2;
   }
-  
+
   .ds-transition {
     @apply transition-all duration-200 ease-in-out;
   }

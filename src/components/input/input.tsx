@@ -1,19 +1,29 @@
-import { Component, Prop, h, Host, Event, EventEmitter, State, Watch } from '@stencil/core';
+import {
+  Component,
+  Prop,
+  h,
+  Host,
+  Event,
+  EventEmitter,
+  State,
+  Watch,
+} from '@stencil/core';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-export type InputType = 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search';
+export type InputType =
+  | 'text'
+  | 'email'
+  | 'password'
+  | 'number'
+  | 'tel'
+  | 'url'
+  | 'search';
 export type InputSize = 'sm' | 'md' | 'lg';
 
 // CVA variant definitions for Input
 const inputContainerVariants = cva(
   // Base classes for container
-  [
-    'relative',
-    'border',
-    'rounded-md',
-    'bg-white',
-    'ds-transition',
-  ],
+  ['relative', 'border', 'rounded-md', 'bg-white', 'ds-transition'],
   {
     variants: {
       state: {
@@ -51,7 +61,11 @@ const inputFieldVariants = cva(
         lg: ['px-4', 'py-3', 'text-base', 'leading-6'],
       },
       disabled: {
-        true: ['text-secondary-500', 'cursor-not-allowed', 'placeholder-secondary-300'],
+        true: [
+          'text-secondary-500',
+          'cursor-not-allowed',
+          'placeholder-secondary-300',
+        ],
       },
       readonly: {
         true: ['cursor-default'],
@@ -63,7 +77,9 @@ const inputFieldVariants = cva(
   }
 );
 
-export type InputContainerVariantProps = VariantProps<typeof inputContainerVariants>;
+export type InputContainerVariantProps = VariantProps<
+  typeof inputContainerVariants
+>;
 export type InputFieldVariantProps = VariantProps<typeof inputFieldVariants>;
 
 @Component({
@@ -190,7 +206,7 @@ export class Input {
 
   private getContainerClasses() {
     let state: 'default' | 'focused' | 'error' | 'errorFocused' = 'default';
-    
+
     if (this.error && this.focused) {
       state = 'errorFocused';
     } else if (this.error) {
@@ -222,16 +238,19 @@ export class Input {
       <Host class={this.fullWidth ? 'block w-full' : 'inline-block'}>
         <div class={`flex flex-col gap-1.5 ${this.fullWidth ? 'w-full' : ''}`}>
           {hasLabel && (
-            <label class="flex items-center gap-1 text-sm font-medium text-secondary-700 leading-5" htmlFor="input">
+            <label
+              class='flex items-center gap-1 text-sm font-medium text-secondary-700 leading-5'
+              htmlFor='input'
+            >
               {this.label}
-              {this.required && <span class="text-error-500">*</span>}
+              {this.required && <span class='text-error-500'>*</span>}
             </label>
           )}
-          
+
           <div class={this.getContainerClasses()}>
             <input
-              ref={(el) => this.inputElement = el}
-              id="input"
+              ref={el => (this.inputElement = el)}
+              id='input'
               class={this.getInputClasses()}
               type={this.type}
               value={this.value}
@@ -250,11 +269,11 @@ export class Input {
           </div>
 
           {(hasError || hasHelperText) && (
-            <div class="text-xs leading-4">
+            <div class='text-xs leading-4'>
               {hasError ? (
-                <span class="text-error-600">{this.error}</span>
+                <span class='text-error-600'>{this.error}</span>
               ) : (
-                <span class="text-secondary-500">{this.helperText}</span>
+                <span class='text-secondary-500'>{this.helperText}</span>
               )}
             </div>
           )}

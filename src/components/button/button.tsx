@@ -131,8 +131,8 @@ export class Button {
           disabled={this.disabled || this.loading}
           type={this.type}
         >
-          {this.loading && <ds-spinner size="sm"></ds-spinner>}
-          <span class="flex items-center justify-center gap-2">
+          {this.loading && <ds-spinner size='sm'></ds-spinner>}
+          <span class='flex items-center justify-center gap-2'>
             <slot></slot>
           </span>
         </button>
