@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property       | Attribute      | Description                              | Type                                                                        | Default     |
@@ -22,6 +23,7 @@
 | `type`         | `type`         | The input type                           | `"email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url"` | `'text'`    |
 | `value`        | `value`        | The input value                          | `string`                                                                    | `''`        |
 
+
 ## Events
 
 | Event     | Description                          | Type                  |
@@ -30,6 +32,7 @@
 | `dsFocus` | Emitted when the input is focused    | `CustomEvent<void>`   |
 | `dsInput` | Emitted when the input value changes | `CustomEvent<string>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

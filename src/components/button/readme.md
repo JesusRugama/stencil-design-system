@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute    | Description                               | Type                                              | Default     |
@@ -13,6 +14,7 @@
 | `type`      | `type`       | Button type attribute                     | `"button" \| "reset" \| "submit"`                 | `'button'`  |
 | `variant`   | `variant`    | The button variant                        | `"danger" \| "ghost" \| "primary" \| "secondary"` | `'primary'` |
 
+
 ## Dependencies
 
 ### Depends on
@@ -20,13 +22,12 @@
 - [ds-spinner](../spinner)
 
 ### Graph
-
 ```mermaid
 graph TD;
   ds-button --> ds-spinner
   style ds-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
