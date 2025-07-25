@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  important: false, // Explicitly disable !important to allow consumer overrides
   content: [
     './src/**/*.{ts,tsx,html}',
     './playground/**/*.{html,js}',

@@ -1,5 +1,6 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, h, Element } from '@stencil/core';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../../utils/cn';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -83,7 +84,9 @@ export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
   tag: 'ds-button',
   shadow: false,
 })
-export class Button {
+export class Button implements ButtonVariantProps {
+  @Element() el: HTMLElement;
+
   /**
    * The button variant
    */
@@ -124,19 +127,23 @@ export class Button {
   }
 
   render() {
+    // Merge component default classes with consumer classes
+    // Consumer classes come last to ensure they override defaults
+    const defaultClasses = this.getButtonClasses();
+    const consumerClasses = this.el.className;
+    const mergedClasses = cn(defaultClasses, consumerClasses);
+
     return (
-      <Host class={this.fullWidth ? 'block w-full' : 'inline-block'}>
-        <button
-          class={this.getButtonClasses()}
-          disabled={this.disabled || this.loading}
-          type={this.type}
-        >
-          {this.loading && <ds-spinner size='sm'></ds-spinner>}
-          <span class='flex items-center justify-center gap-2'>
-            <slot></slot>
-          </span>
-        </button>
-      </Host>
+      <button
+        class={mergedClasses}
+        disabled={this.disabled || this.loading}
+        type={this.type}
+      >
+        {this.loading && <ds-spinner size='sm'></ds-spinner>}
+        <span class='flex items-center justify-center gap-2'>
+          <slot></slot>
+        </span>
+      </button>
     );
   }
 }
