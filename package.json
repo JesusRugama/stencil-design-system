@@ -19,6 +19,15 @@
     "dist/",
     "loader/"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./loader": "./loader/index.js",
+    "./dist/stencil-design-system/stencil-design-system.css": "./dist/stencil-design-system/stencil-design-system.css"
+  },
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
