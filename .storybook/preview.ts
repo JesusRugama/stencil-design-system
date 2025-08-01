@@ -16,6 +16,11 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    options: {
+      storySort: {
+        order: ['Overview', 'Components'],
+      },
+    },
     backgrounds: {
       default: 'light',
       values: [

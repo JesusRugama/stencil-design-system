@@ -1,0 +1,57 @@
+/* Minimalist Spinner Styles */
+.ds-spinner {
+  @apply inline-flex items-center justify-center;
+}
+
+.ds-spinner-svg {
+  animation: ds-spinner-rotate 1s linear infinite;
+}
+
+/* Size variants */
+.ds-spinner--sm .ds-spinner-svg {
+  @apply w-4 h-4;
+}
+
+.ds-spinner--md .ds-spinner-svg {
+  @apply w-5 h-5;
+}
+
+.ds-spinner--lg .ds-spinner-svg {
+  @apply w-6 h-6;
+}
+
+/* Track (background circle) */
+.ds-spinner-track {
+  @apply opacity-20;
+}
+
+/* Fill (animated circle) */
+.ds-spinner-fill {
+  @apply opacity-80;
+  animation: ds-spinner-dash 1.5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes ds-spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ds-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}

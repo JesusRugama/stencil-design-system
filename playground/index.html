@@ -3,139 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design System Playground</title>
+  <title>Minimalist Design System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Playground styles (includes Stencil component styles via @import) -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="playground">
-    <header>
-      <h1>Design System Playground</h1>
-      <p>Quick testing environment for components during development.</p>
+    <header class="header">
+      <ds-typography variant="h1" align="center">Minimalist Design System</ds-typography>
+      <ds-typography variant="body" color="muted" align="center">
+        Elegant, clean components for modern web applications
+      </ds-typography>
     </header>
 
+    <!-- Typography Section -->
     <section class="section">
-      <h2>Buttons</h2>
+      <ds-typography variant="h2">Typography</ds-typography>
+      <ds-typography variant="body" color="muted">
+        A comprehensive type system with elegant hierarchy and spacing.
+      </ds-typography>
       
-      <div class="component-group">
-        <h3>Variants</h3>
-        <div class="demo-grid">
-          <div class="demo-item">
-            <h4>Primary</h4>
-            <ds-button variant="primary">Primary Button</ds-button>
-          </div>
-          <div class="demo-item">
-            <h4>Secondary</h4>
-            <ds-button variant="secondary">Secondary Button</ds-button>
-          </div>
-          <div class="demo-item">
-            <h4>Ghost</h4>
-            <ds-button variant="ghost">Ghost Button</ds-button>
-          </div>
-          <div class="demo-item">
-            <h4>Danger</h4>
-            <ds-button variant="danger">Danger Button</ds-button>
-          </div>
+      <div class="demo-grid">
+        <div class="demo-item">
+          <ds-typography variant="h1">Heading 1</ds-typography>
+          <ds-typography variant="h2">Heading 2</ds-typography>
+          <ds-typography variant="h3">Heading 3</ds-typography>
+          <ds-typography variant="h4">Heading 4</ds-typography>
+          <ds-typography variant="h5">Heading 5</ds-typography>
+          <ds-typography variant="h6">Heading 6</ds-typography>
         </div>
-      </div>
-
-      <div class="component-group">
-        <h3>Sizes</h3>
-        <div class="demo-grid">
-          <div class="demo-item">
-            <h4>Small</h4>
-            <ds-button size="sm">Small Button</ds-button>
-          </div>
-          <div class="demo-item">
-            <h4>Medium</h4>
-            <ds-button size="md">Medium Button</ds-button>
-          </div>
-          <div class="demo-item">
-            <h4>Large</h4>
-            <ds-button size="lg">Large Button</ds-button>
-          </div>
-        </div>
-      </div>
-
-      <div class="component-group">
-        <h3>States</h3>
-        <div class="demo-grid">
-          <div class="demo-item">
-            <h4>Loading</h4>
-            <ds-button loading>Loading Button</ds-button>
-          </div>
-          <div class="demo-item">
-            <h4>Disabled</h4>
-            <ds-button disabled>Disabled Button</ds-button>
-          </div>
-          <div class="demo-item">
-            <h4>Full Width</h4>
-            <ds-button full-width>Full Width Button</ds-button>
-          </div>
+        <div class="demo-item">
+          <ds-typography variant="body">
+            This is body text with comfortable reading line height and spacing.
+          </ds-typography>
+          <ds-typography variant="body-sm">
+            This is smaller body text for secondary content.
+          </ds-typography>
+          <ds-typography variant="caption">
+            This is caption text for labels and metadata.
+          </ds-typography>
+          <ds-typography variant="overline">
+            This is overline text
+          </ds-typography>
         </div>
       </div>
     </section>
 
+    <!-- Buttons Section -->
     <section class="section">
-      <h2>Inputs</h2>
+      <ds-typography variant="h2">Buttons</ds-typography>
+      <ds-typography variant="body" color="muted">
+        Clean, minimal button styles with subtle hover effects.
+      </ds-typography>
       
       <div class="component-group">
-        <h3>Basic Inputs</h3>
-        <div class="demo-grid">
-          <div class="demo-item">
-            <h4>Text Input</h4>
-            <ds-input label="Text Input" placeholder="Enter text..."></ds-input>
-          </div>
-          <div class="demo-item">
-            <h4>Email Input</h4>
-            <ds-input type="email" label="Email" placeholder="Enter email..."></ds-input>
-          </div>
-          <div class="demo-item">
-            <h4>Password Input</h4>
-            <ds-input type="password" label="Password" placeholder="Enter password..."></ds-input>
-          </div>
+        <ds-typography variant="h4">Variants</ds-typography>
+        <div class="demo-row">
+          <ds-button variant="primary">Primary</ds-button>
+          <ds-button variant="secondary">Secondary</ds-button>
+          <ds-button variant="ghost">Ghost</ds-button>
         </div>
       </div>
 
       <div class="component-group">
-        <h3>Input Sizes</h3>
-        <div class="demo-grid">
-          <div class="demo-item">
-            <h4>Small</h4>
-            <ds-input size="sm" label="Small Input" placeholder="Small..."></ds-input>
-          </div>
-          <div class="demo-item">
-            <h4>Medium</h4>
-            <ds-input size="md" label="Medium Input" placeholder="Medium..."></ds-input>
-          </div>
-          <div class="demo-item">
-            <h4>Large</h4>
-            <ds-input size="lg" label="Large Input" placeholder="Large..."></ds-input>
-          </div>
+        <ds-typography variant="h4">Sizes</ds-typography>
+        <div class="demo-row">
+          <ds-button size="sm">Small</ds-button>
+          <ds-button size="md">Medium</ds-button>
+          <ds-button size="lg">Large</ds-button>
         </div>
       </div>
 
       <div class="component-group">
-        <h3>Input States</h3>
-        <div class="demo-grid">
-          <div class="demo-item">
-            <h4>With Error</h4>
-            <ds-input label="Email" value="invalid-email" error="Please enter a valid email"></ds-input>
-          </div>
-          <div class="demo-item">
-            <h4>With Helper Text</h4>
-            <ds-input label="Password" helper-text="Must be at least 8 characters"></ds-input>
-          </div>
-          <div class="demo-item">
-            <h4>Required</h4>
-            <ds-input label="Full Name" required placeholder="Enter your name..."></ds-input>
-          </div>
-          <div class="demo-item">
-            <h4>Disabled</h4>
-            <ds-input label="Disabled" disabled value="This is disabled"></ds-input>
-          </div>
+        <ds-typography variant="h4">States</ds-typography>
+        <div class="demo-row">
+          <ds-button>Normal</ds-button>
+          <ds-button disabled>Disabled</ds-button>
+          <ds-button loading>Loading</ds-button>
         </div>
+      </div>
+    </section>
+
+    <!-- Inputs Section -->
+    <section class="section">
+      <ds-typography variant="h2">Inputs</ds-typography>
+      <ds-typography variant="body" color="muted">
+        Clean form inputs with subtle focus states and validation.
+      </ds-typography>
+      
+      <div class="demo-grid">
+        <div class="demo-item">
+          <ds-input 
+            label="Email Address" 
+            type="email" 
+            placeholder="Enter your email"
+            helper-text="We'll never share your email">
+          </ds-input>
+        </div>
+        <div class="demo-item">
+          <ds-input 
+            label="Password" 
+            type="password" 
+            placeholder="Enter your password"
+            required>
+          </ds-input>
+        </div>
+        <div class="demo-item">
+          <ds-input 
+            label="Full Name" 
+            placeholder="John Doe"
+            size="lg">
+          </ds-input>
+        </div>
+        <div class="demo-item">
+          <ds-input 
+            label="Error State" 
+            placeholder="This field has an error"
+            error="This field is required">
+          </ds-input>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spinners Section -->
+    <section class="section">
+      <ds-typography variant="h2">Loading Indicators</ds-typography>
+      <ds-typography variant="body" color="muted">
+        Smooth, minimal loading animations.
+      </ds-typography>
+      
+      <div class="demo-row">
+        <div class="demo-item">
+          <ds-typography variant="body-sm" color="muted">Small</ds-typography>
+          <ds-spinner size="sm"></ds-spinner>
+        </div>
+        <div class="demo-item">
+          <ds-typography variant="body-sm" color="muted">Medium</ds-typography>
+          <ds-spinner size="md"></ds-spinner>
+        </div>
+        <div class="demo-item">
+          <ds-typography variant="body-sm" color="muted">Large</ds-typography>
+          <ds-spinner size="lg"></ds-spinner>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example Form -->
+    <section class="section">
+      <ds-typography variant="h2">Example Form</ds-typography>
+      <ds-typography variant="body" color="muted">
+        A complete form example showcasing component integration.
+      </ds-typography>
+      
+      <div class="form-example">
+        <form class="form">
+          <ds-typography variant="h3">Contact Us</ds-typography>
+          
+          <ds-input 
+            label="Name" 
+            placeholder="Your full name"
+            required
+            full-width>
+          </ds-input>
+          
+          <ds-input 
+            label="Email" 
+            type="email"
+            placeholder="your@email.com"
+            required
+            full-width>
+          </ds-input>
+          
+          <ds-input 
+            label="Message" 
+            placeholder="Tell us how we can help..."
+            full-width>
+          </ds-input>
+          
+          <div class="form-actions">
+            <ds-button variant="ghost" type="button">Cancel</ds-button>
+            <ds-button variant="primary" type="submit">Send Message</ds-button>
+          </div>
+        </form>
       </div>
     </section>
   </div>

@@ -5,114 +5,91 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonSize, ButtonVariant } from "./components/button/button";
+import { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
 import { InputSize, InputType } from "./components/input/input";
-export { ButtonSize, ButtonVariant } from "./components/button/button";
+import { TypographyColor, TypographyVariant } from "./components/typography/typography";
+export { ButtonSize, ButtonType, ButtonVariant } from "./components/button/button";
 export { InputSize, InputType } from "./components/input/input";
+export { TypographyColor, TypographyVariant } from "./components/typography/typography";
 export namespace Components {
     interface DsButton {
         /**
-          * Whether the button is disabled
           * @default false
          */
         "disabled": boolean;
         /**
-          * Whether the button should take full width
           * @default false
          */
         "fullWidth": boolean;
         /**
-          * Whether the button is in loading state
           * @default false
          */
         "loading": boolean;
         /**
-          * The button size
           * @default 'md'
          */
         "size": ButtonSize;
         /**
-          * Button type attribute
           * @default 'button'
          */
-        "type": 'button' | 'submit' | 'reset';
+        "type": ButtonType;
         /**
-          * The button variant
           * @default 'primary'
          */
         "variant": ButtonVariant;
     }
     interface DsInput {
         /**
-          * Input autocomplete attribute
           * @default ''
          */
         "autocomplete": string;
         /**
-          * Whether the input is disabled
           * @default false
          */
         "disabled": boolean;
         /**
-          * Error message to display
           * @default ''
          */
         "error": string;
         /**
-          * Whether the input should take full width
           * @default false
          */
         "fullWidth": boolean;
         /**
-          * Helper text to display
           * @default ''
          */
         "helperText": string;
         /**
-          * The input label
           * @default ''
          */
         "label": string;
-        /**
-          * Maximum length of input
-         */
         "maxlength": number;
-        /**
-          * Minimum length of input
-         */
         "minlength": number;
         /**
-          * Input name attribute
           * @default ''
          */
         "name": string;
         /**
-          * The input placeholder
           * @default ''
          */
         "placeholder": string;
         /**
-          * Whether the input is readonly
           * @default false
          */
         "readonly": boolean;
         /**
-          * Whether the input is required
           * @default false
          */
         "required": boolean;
         /**
-          * The input size
           * @default 'md'
          */
         "size": InputSize;
         /**
-          * The input type
           * @default 'text'
          */
         "type": InputType;
         /**
-          * The input value
           * @default ''
          */
         "value": string;
@@ -122,6 +99,24 @@ export namespace Components {
           * @default 'md'
          */
         "size": 'sm' | 'md' | 'lg';
+    }
+    interface DsTypography {
+        /**
+          * @default 'left'
+         */
+        "align": 'left' | 'center' | 'right';
+        /**
+          * @default 'primary'
+         */
+        "color": TypographyColor;
+        /**
+          * @default 'body'
+         */
+        "variant": TypographyVariant;
+        /**
+          * @default 'normal'
+         */
+        "weight": 'normal' | 'medium' | 'semibold' | 'bold';
     }
 }
 export interface DsInputCustomEvent<T> extends CustomEvent<T> {
@@ -160,128 +155,101 @@ declare global {
         prototype: HTMLDsSpinnerElement;
         new (): HTMLDsSpinnerElement;
     };
+    interface HTMLDsTypographyElement extends Components.DsTypography, HTMLStencilElement {
+    }
+    var HTMLDsTypographyElement: {
+        prototype: HTMLDsTypographyElement;
+        new (): HTMLDsTypographyElement;
+    };
     interface HTMLElementTagNameMap {
         "ds-button": HTMLDsButtonElement;
         "ds-input": HTMLDsInputElement;
         "ds-spinner": HTMLDsSpinnerElement;
+        "ds-typography": HTMLDsTypographyElement;
     }
 }
 declare namespace LocalJSX {
     interface DsButton {
         /**
-          * Whether the button is disabled
           * @default false
          */
         "disabled"?: boolean;
         /**
-          * Whether the button should take full width
           * @default false
          */
         "fullWidth"?: boolean;
         /**
-          * Whether the button is in loading state
           * @default false
          */
         "loading"?: boolean;
         /**
-          * The button size
           * @default 'md'
          */
         "size"?: ButtonSize;
         /**
-          * Button type attribute
           * @default 'button'
          */
-        "type"?: 'button' | 'submit' | 'reset';
+        "type"?: ButtonType;
         /**
-          * The button variant
           * @default 'primary'
          */
         "variant"?: ButtonVariant;
     }
     interface DsInput {
         /**
-          * Input autocomplete attribute
           * @default ''
          */
         "autocomplete"?: string;
         /**
-          * Whether the input is disabled
           * @default false
          */
         "disabled"?: boolean;
         /**
-          * Error message to display
           * @default ''
          */
         "error"?: string;
         /**
-          * Whether the input should take full width
           * @default false
          */
         "fullWidth"?: boolean;
         /**
-          * Helper text to display
           * @default ''
          */
         "helperText"?: string;
         /**
-          * The input label
           * @default ''
          */
         "label"?: string;
-        /**
-          * Maximum length of input
-         */
         "maxlength"?: number;
-        /**
-          * Minimum length of input
-         */
         "minlength"?: number;
         /**
-          * Input name attribute
           * @default ''
          */
         "name"?: string;
-        /**
-          * Emitted when the input loses focus
-         */
         "onDsBlur"?: (event: DsInputCustomEvent<void>) => void;
-        /**
-          * Emitted when the input is focused
-         */
         "onDsFocus"?: (event: DsInputCustomEvent<void>) => void;
-        /**
-          * Emitted when the input value changes
-         */
         "onDsInput"?: (event: DsInputCustomEvent<string>) => void;
         /**
-          * The input placeholder
           * @default ''
          */
         "placeholder"?: string;
         /**
-          * Whether the input is readonly
           * @default false
          */
         "readonly"?: boolean;
         /**
-          * Whether the input is required
           * @default false
          */
         "required"?: boolean;
         /**
-          * The input size
           * @default 'md'
          */
         "size"?: InputSize;
         /**
-          * The input type
           * @default 'text'
          */
         "type"?: InputType;
         /**
-          * The input value
           * @default ''
          */
         "value"?: string;
@@ -292,10 +260,29 @@ declare namespace LocalJSX {
          */
         "size"?: 'sm' | 'md' | 'lg';
     }
+    interface DsTypography {
+        /**
+          * @default 'left'
+         */
+        "align"?: 'left' | 'center' | 'right';
+        /**
+          * @default 'primary'
+         */
+        "color"?: TypographyColor;
+        /**
+          * @default 'body'
+         */
+        "variant"?: TypographyVariant;
+        /**
+          * @default 'normal'
+         */
+        "weight"?: 'normal' | 'medium' | 'semibold' | 'bold';
+    }
     interface IntrinsicElements {
         "ds-button": DsButton;
         "ds-input": DsInput;
         "ds-spinner": DsSpinner;
+        "ds-typography": DsTypography;
     }
 }
 export { LocalJSX as JSX };
@@ -305,6 +292,7 @@ declare module "@stencil/core" {
             "ds-button": LocalJSX.DsButton & JSXBase.HTMLAttributes<HTMLDsButtonElement>;
             "ds-input": LocalJSX.DsInput & JSXBase.HTMLAttributes<HTMLDsInputElement>;
             "ds-spinner": LocalJSX.DsSpinner & JSXBase.HTMLAttributes<HTMLDsSpinnerElement>;
+            "ds-typography": LocalJSX.DsTypography & JSXBase.HTMLAttributes<HTMLDsTypographyElement>;
         }
     }
 }

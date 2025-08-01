@@ -1,148 +1,51 @@
 import { Component, Prop, h, Element } from '@stencil/core';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '../../utils/cn';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
+export type ButtonVariant = 'primary' | 'secondary' | 'ghost';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 export type ButtonType = 'button' | 'submit' | 'reset';
-
-// CVA variant definition
-const buttonVariants = cva(
-  // Base classes
-  [
-    'relative',
-    'inline-flex',
-    'items-center',
-    'justify-center',
-    'gap-2',
-    'border',
-    'border-transparent',
-    'rounded-md',
-    'font-medium',
-    'ds-transition',
-    'ds-focus-ring',
-    'disabled:opacity-50',
-    'disabled:cursor-not-allowed',
-  ],
-  {
-    variants: {
-      variant: {
-        primary: [
-          'bg-primary-600',
-          'text-white',
-          'hover:bg-primary-700',
-          'active:bg-primary-800',
-          'disabled:hover:bg-primary-600',
-        ],
-        secondary: [
-          'bg-secondary-100',
-          'text-secondary-900',
-          'border-secondary-300',
-          'hover:bg-secondary-200',
-          'hover:border-secondary-400',
-          'active:bg-secondary-300',
-          'disabled:hover:bg-secondary-100',
-          'disabled:hover:border-secondary-300',
-        ],
-        ghost: [
-          'bg-transparent',
-          'text-secondary-700',
-          'hover:bg-secondary-100',
-          'active:bg-secondary-200',
-          'disabled:hover:bg-transparent',
-        ],
-        danger: [
-          'bg-error-600',
-          'text-white',
-          'hover:bg-error-700',
-          'active:bg-error-800',
-          'disabled:hover:bg-error-600',
-        ],
-      },
-      size: {
-        sm: ['px-3', 'py-2', 'text-sm', 'leading-5'],
-        md: ['px-4', 'py-2.5', 'text-sm', 'leading-5'],
-        lg: ['px-6', 'py-3', 'text-base', 'leading-6'],
-      },
-      fullWidth: {
-        true: ['w-full'],
-      },
-      loading: {
-        true: ['cursor-wait'],
-      },
-    },
-    defaultVariants: {
-      variant: 'primary',
-      size: 'md',
-    },
-  }
-);
-
-export type ButtonVariantProps = VariantProps<typeof buttonVariants>;
 
 @Component({
   tag: 'ds-button',
   shadow: false,
+  styleUrl: 'button.css',
 })
-export class Button implements ButtonVariantProps {
-  @Element() el: HTMLElement;
+export class Button {
+  @Element() el!: HTMLElement;
 
-  /**
-   * The button variant
-   */
   @Prop() variant: ButtonVariant = 'primary';
-
-  /**
-   * The button size
-   */
   @Prop() size: ButtonSize = 'md';
-
-  /**
-   * Whether the button is disabled
-   */
   @Prop() disabled: boolean = false;
-
-  /**
-   * Whether the button should take full width
-   */
   @Prop() fullWidth: boolean = false;
-
-  /**
-   * Whether the button is in loading state
-   */
   @Prop() loading: boolean = false;
+  @Prop() type: ButtonType = 'button';
 
-  /**
-   * Button type attribute
-   */
-  @Prop() type: 'button' | 'submit' | 'reset' = 'button';
-
-  private getButtonClasses() {
-    return buttonVariants({
-      variant: this.variant,
-      size: this.size,
-      fullWidth: this.fullWidth,
-      loading: this.loading,
-    });
+  private getButtonClasses(): string {
+    const classes = ['ds-button'];
+    
+    classes.push(`ds-button--${this.variant}`);
+    classes.push(`ds-button--${this.size}`);
+    
+    if (this.fullWidth) classes.push('ds-button--full-width');
+    if (this.disabled || this.loading) classes.push('ds-button--disabled');
+    if (this.loading) classes.push('ds-button--loading');
+    
+    return classes.join(' ');
   }
 
   render() {
-    // Merge component default classes with consumer classes
-    // Consumer classes come last to ensure they override defaults
-    const defaultClasses = this.getButtonClasses();
-    const consumerClasses = this.el.className;
-    const mergedClasses = cn(defaultClasses, consumerClasses);
+    const classes = this.getButtonClasses();
 
     return (
       <button
-        class={mergedClasses}
-        disabled={this.disabled || this.loading}
         type={this.type}
+        class={classes}
+        disabled={this.disabled || this.loading}
+        aria-disabled={this.disabled || this.loading ? 'true' : 'false'}
       >
-        {this.loading && <ds-spinner size='sm'></ds-spinner>}
-        <span class='flex items-center justify-center gap-2'>
-          <slot></slot>
-        </span>
+        {this.loading && (
+          <ds-spinner size={this.size === 'lg' ? 'md' : 'sm'} />
+        )}
+        <slot />
       </button>
     );
   }

@@ -7,6 +7,7 @@ export const config: Config = {
   plugins: [
     postcss({
       plugins: [
+        require('postcss-nesting'),
         require('tailwindcss'),
         require('autoprefixer'),
       ],

@@ -1,0 +1,96 @@
+/* Minimalist Input Styles */
+.ds-input-wrapper {
+  @apply flex flex-col gap-1.5;
+}
+
+.ds-input-label {
+  @apply text-sm font-medium text-gray-700 leading-5;
+}
+
+.ds-input-required {
+  @apply text-red-500 ml-0.5;
+}
+
+.ds-input-container {
+  @apply relative border border-gray-200 rounded-md bg-white transition-all duration-150 ease-in-out;
+}
+
+/* Size variants */
+.ds-input-container--sm {
+  @apply min-h-8;
+}
+
+.ds-input-container--md {
+  @apply min-h-10;
+}
+
+.ds-input-container--lg {
+  @apply min-h-12;
+}
+
+/* State variants */
+.ds-input-container:hover:not(.ds-input-container--disabled) {
+  @apply border-gray-300 shadow-sm;
+}
+
+.ds-input-container--focused {
+  @apply border-blue-500 ring-4 ring-blue-100;
+}
+
+.ds-input-container--error {
+  @apply border-red-500;
+}
+
+.ds-input-container--error.ds-input-container--focused {
+  @apply ring-4 ring-red-100;
+}
+
+.ds-input-container--disabled {
+  @apply bg-gray-50 border-gray-200 cursor-not-allowed;
+}
+
+.ds-input-container--full-width {
+  @apply w-full;
+}
+
+/* Input field */
+.ds-input-field {
+  @apply w-full border-0 outline-none bg-transparent text-gray-900 text-sm leading-5;
+}
+
+.ds-input-field::placeholder {
+  @apply text-gray-400;
+}
+
+.ds-input-field--sm {
+  @apply px-3 py-2;
+}
+
+.ds-input-field--md {
+  @apply px-3.5 py-2.5;
+}
+
+.ds-input-field--lg {
+  @apply px-4 py-3 text-base leading-6;
+}
+
+.ds-input-field--disabled {
+  @apply text-gray-400 cursor-not-allowed;
+}
+
+.ds-input-field--disabled::placeholder {
+  @apply text-gray-300;
+}
+
+/* Message area */
+.ds-input-message {
+  @apply text-xs leading-4;
+}
+
+.ds-input-error {
+  @apply text-red-500;
+}
+
+.ds-input-helper {
+  @apply text-gray-500;
+}

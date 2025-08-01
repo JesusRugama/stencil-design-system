@@ -1,0 +1,107 @@
+/* Minimalist Typography Styles */
+.ds-typography {
+  @apply m-0 font-sans leading-6;
+}
+
+/* Variant styles */
+.ds-typography--h1 {
+  @apply text-4xl font-bold leading-tight tracking-tight;
+}
+
+.ds-typography--h2 {
+  @apply text-3xl font-semibold leading-tight tracking-tight;
+}
+
+.ds-typography--h3 {
+  @apply text-2xl font-semibold leading-snug tracking-tight;
+}
+
+.ds-typography--h4 {
+  @apply text-xl font-semibold leading-7;
+}
+
+.ds-typography--h5 {
+  @apply text-lg font-semibold leading-7;
+}
+
+.ds-typography--h6 {
+  @apply text-base font-semibold leading-7;
+}
+
+.ds-typography--body {
+  @apply text-base font-normal leading-relaxed;
+}
+
+.ds-typography--body-sm {
+  @apply text-sm font-normal leading-6;
+}
+
+.ds-typography--caption {
+  @apply text-xs font-normal leading-snug tracking-wide;
+}
+
+.ds-typography--overline {
+  @apply text-xs font-semibold leading-snug tracking-widest uppercase;
+}
+
+/* Color variants */
+.ds-typography--primary {
+  @apply text-gray-900;
+}
+
+.ds-typography--secondary {
+  @apply text-gray-700;
+}
+
+.ds-typography--muted {
+  @apply text-gray-500;
+}
+
+.ds-typography--accent {
+  @apply text-blue-500;
+}
+
+/* Alignment */
+.ds-typography--left {
+  @apply text-left;
+}
+
+.ds-typography--center {
+  @apply text-center;
+}
+
+.ds-typography--right {
+  @apply text-right;
+}
+
+/* Weight overrides */
+.ds-typography--normal {
+  @apply font-normal;
+}
+
+.ds-typography--medium {
+  @apply font-medium;
+}
+
+.ds-typography--semibold {
+  @apply font-semibold;
+}
+
+.ds-typography--bold {
+  @apply font-bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .ds-typography--h1 {
+    @apply text-3xl;
+  }
+  
+  .ds-typography--h2 {
+    @apply text-2xl;
+  }
+  
+  .ds-typography--h3 {
+    @apply text-xl;
+  }
+}

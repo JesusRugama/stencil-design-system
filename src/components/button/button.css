@@ -1,0 +1,86 @@
+/* Minimalist Button Styles */
+.ds-button {
+  @apply relative inline-flex items-center justify-center gap-2;
+  @apply border-none rounded-md font-medium no-underline cursor-pointer;
+  @apply transition-all duration-150 ease-in-out outline-none bg-transparent;
+  
+  &:focus-visible {
+    @apply outline-2 outline-blue-500 outline-offset-2;
+  }
+}
+
+/* Size variants */
+.ds-button--sm {
+  @apply px-3.5 py-2 text-sm leading-5 min-h-8;
+}
+
+.ds-button--md {
+  @apply px-4 py-2.5 text-sm leading-5 min-h-10;
+}
+
+.ds-button--lg {
+  @apply px-6 py-3 text-base leading-6 min-h-12;
+}
+
+/* Primary variant - Elegant dark */
+.ds-button--primary {
+  @apply bg-gray-800 text-white;
+  
+  &:hover:not(.ds-button--disabled) {
+    @apply bg-gray-900 -translate-y-px;
+    box-shadow: 0 4px 12px rgba(31, 41, 55, 0.15);
+  }
+  
+  &:active:not(.ds-button--disabled) {
+    @apply translate-y-0;
+    box-shadow: 0 2px 4px rgba(31, 41, 55, 0.1);
+  }
+}
+
+/* Secondary variant - Subtle border */
+.ds-button--secondary {
+  @apply bg-white text-gray-700 border border-gray-200;
+  
+  &:hover:not(.ds-button--disabled) {
+    @apply bg-gray-50 border-gray-300 -translate-y-px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  &:active:not(.ds-button--disabled) {
+    @apply translate-y-0 bg-gray-100;
+  }
+}
+
+/* Ghost variant - Minimal hover effect */
+.ds-button--ghost {
+  @apply bg-transparent text-gray-500;
+  
+  &:hover:not(.ds-button--disabled) {
+    @apply bg-gray-100 text-gray-700;
+  }
+  
+  &:active:not(.ds-button--disabled) {
+    @apply bg-gray-200;
+  }
+}
+
+/* Full width */
+.ds-button--full-width {
+  @apply w-full;
+}
+
+/* Disabled state */
+.ds-button--disabled {
+  @apply opacity-50 cursor-not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Loading state */
+.ds-button--loading {
+  @apply cursor-wait;
+}
+
+.ds-button--loading slot {
+  @apply opacity-70;
+}

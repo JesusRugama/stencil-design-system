@@ -6,18 +6,26 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
   ],
+  refs: {
+    // This will make Overview the default story
+  },
   framework: {
     name: '@storybook/html-vite',
     options: {},
   },
+  staticDirs: [
+    { from: '../dist/esm', to: '/assets' },
+    '../dist'
+  ],
   typescript: {
     check: false,
   },
   viteFinal: async (config) => {
-    // Ensure Tailwind CSS is processed
+    // Ensure Tailwind CSS and nesting are processed
     if (!config.css) config.css = {};
     config.css.postcss = {
       plugins: [
+        require('postcss-nesting'),
         require('tailwindcss'),
         require('autoprefixer'),
       ],

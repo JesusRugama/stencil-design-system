@@ -28,10 +28,15 @@ const InputGroupTemplate = (
 `;
 
 const meta: Meta = {
-  title: 'Components/Input',
+  title: 'Minimalist Design System/Input',
   component: 'ds-input',
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'Clean, minimalist input component with elegant focus states and validation styling.'
+      }
+    }
   },
   tags: ['autodocs'],
   argTypes: {
