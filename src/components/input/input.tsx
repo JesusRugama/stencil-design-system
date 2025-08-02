@@ -100,47 +100,45 @@ export class Input {
     const inputClasses = this.getInputClasses();
 
     return (
-      <Host>
-        <div class="ds-input-wrapper">
-          {this.label && (
-            <label class="ds-input-label" htmlFor={this.name}>
-              {this.label}
-              {this.required && <span class="ds-input-required">*</span>}
-            </label>
-          )}
-          
-          <div class={containerClasses}>
-            <input
-              ref={(el) => (this.inputElement = el)}
-              id={this.name}
-              name={this.name}
-              type={this.type}
-              class={inputClasses}
-              value={this.value}
-              placeholder={this.placeholder}
-              disabled={this.disabled}
-              readonly={this.readonly}
-              required={this.required}
-              autocomplete={this.autocomplete}
-              maxlength={this.maxlength}
-              minlength={this.minlength}
-              onInput={this.handleInput}
-              onFocus={this.handleFocus}
-              onBlur={this.handleBlur}
-            />
-          </div>
-          
-          {(this.error || this.helperText) && (
-            <div class="ds-input-message">
-              {this.error ? (
-                <span class="ds-input-error">{this.error}</span>
-              ) : (
-                <span class="ds-input-helper">{this.helperText}</span>
-              )}
-            </div>
-          )}
+      <div class="ds-input-wrapper">
+        {this.label && (
+          <label class="ds-input-label" htmlFor={this.name}>
+            {this.label}
+            {this.required && <span class="ds-input-required">*</span>}
+          </label>
+        )}
+        
+        <div class={containerClasses}>
+          <input
+            ref={(el) => (this.inputElement = el)}
+            id={this.name}
+            name={this.name}
+            type={this.type}
+            class={inputClasses}
+            value={this.value}
+            placeholder={this.placeholder}
+            disabled={this.disabled}
+            readonly={this.readonly}
+            required={this.required}
+            autocomplete={this.autocomplete}
+            maxlength={this.maxlength}
+            minlength={this.minlength}
+            onInput={this.handleInput}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+          />
         </div>
-      </Host>
+        
+        {(this.error || this.helperText) && (
+          <div class="ds-input-message">
+            {this.error ? (
+              <span class="ds-input-error">{this.error}</span>
+            ) : (
+              <span class="ds-input-helper">{this.helperText}</span>
+            )}
+          </div>
+        )}
+      </div>
     );
   }
 }

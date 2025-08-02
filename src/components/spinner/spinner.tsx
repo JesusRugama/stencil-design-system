@@ -5,8 +5,6 @@ import { Component, h, Prop } from '@stencil/core';
   shadow: false,
 })
 export class Spinner {
-  @Prop() size: 'sm' | 'md' | 'lg' = 'md';
-
   render() {
     return (
       <span class='flex items-center justify-center'>

@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/html';
 
 // Template functions for cleaner story definitions
-const SpinnerTemplate = (args: any) => `
-  <ds-spinner
-    size="${args.size}"
-  ></ds-spinner>
+const SpinnerTemplate = () => `
+  <ds-spinner></ds-spinner>
 `;
 
 const SpinnerGroupTemplate = (
@@ -36,64 +34,13 @@ const meta: Meta = {
     }
   },
   tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: { type: 'select' },
-      options: ['sm', 'md', 'lg'],
-      description: 'Size of the spinner'
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {
-  args: {
-    size: 'md',
-  },
-  render: args => SpinnerTemplate(args),
-};
-
-export const Small: Story = {
-  args: {
-    ...Default.args,
-    size: 'sm',
-  },
-  render: Default.render,
-};
-
-export const Medium: Story = {
-  args: {
-    ...Default.args,
-    size: 'md',
-  },
-  render: Default.render,
-};
-
-export const Large: Story = {
-  args: {
-    ...Default.args,
-    size: 'lg',
-  },
-  render: Default.render,
-};
-
-// Showcase all sizes
-export const AllSizes: Story = {
-  render: () =>
-    SpinnerGroupTemplate([
-      { size: 'sm', label: 'Small (16px)' },
-      { size: 'md', label: 'Medium (24px)' },
-      { size: 'lg', label: 'Large (32px)' },
-    ]),
-  parameters: {
-    docs: {
-      description: {
-        story: 'All available spinner sizes with smooth animations.'
-      }
-    }
-  }
+  render: () => SpinnerTemplate(),
 };
 
 // Loading states in context

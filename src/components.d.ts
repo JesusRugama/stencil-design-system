@@ -95,10 +95,6 @@ export namespace Components {
         "value": string;
     }
     interface DsSpinner {
-        /**
-          * @default 'md'
-         */
-        "size": 'sm' | 'md' | 'lg';
     }
     interface DsTypography {
         /**
@@ -255,10 +251,6 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface DsSpinner {
-        /**
-          * @default 'md'
-         */
-        "size"?: 'sm' | 'md' | 'lg';
     }
     interface DsTypography {
         /**

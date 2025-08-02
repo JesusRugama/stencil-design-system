@@ -3,13 +3,6 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
-
-| Property | Attribute | Description | Type                   | Default |
-| -------- | --------- | ----------- | ---------------------- | ------- |
-| `size`   | `size`    |             | `"lg" \| "md" \| "sm"` | `'md'`  |
-
-
 ## Dependencies
 
 ### Used by
