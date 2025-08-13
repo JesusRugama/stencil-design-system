@@ -43,7 +43,7 @@ export class Button {
         aria-disabled={this.disabled || this.loading ? 'true' : 'false'}
       >
         {this.loading && (
-          <ds-spinner size={this.size === 'lg' ? 'md' : 'sm'} />
+          <ds-spinner />
         )}
         <slot />
       </button>
