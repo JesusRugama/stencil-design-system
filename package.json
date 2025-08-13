@@ -1,86 +1,11 @@
 {
-  "name": "@jesusrugama/stencil-design-system",
-  "version": "0.1.5",
-  "description": "A modern, framework-agnostic design system built with Stencil",
-  "type": "module",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/design-system/design-system.esm.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/JesusRugama/stencil-design-system.git"
-  },
-  "files": [
-    "dist/",
-    "loader/"
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs.js"
-    },
-    "./loader": "./loader/index.js",
-    "./dist/stencil-design-system/stencil-design-system.css": "./dist/stencil-design-system/stencil-design-system.css"
-  },
-  "scripts": {
-    "build": "stencil build",
-    "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "rm -rf dist loader www .stencil storybook-static && npm run build && storybook build",
-    "dev:build": "stencil build --watch",
-    "playground": "vite playground --port 3001",
-    "lint": "eslint src --ext .ts,.tsx",
-    "lint:fix": "eslint src --ext .ts,.tsx --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css,scss,md}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,css,scss,md}\"",
-    "lint:all": "npm run lint && npm run format:check"
-  },
-  "dependencies": {
-    "@stencil/core": "^4.12.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@eslint/js": "^9.31.0",
-    "@stencil-community/postcss": "^2.2.0",
-    "@storybook/addon-essentials": "^7.6.0",
-    "@storybook/addon-links": "^7.6.0",
-    "@storybook/blocks": "^7.6.0",
-    "@storybook/html": "^7.6.0",
-    "@storybook/html-vite": "^7.6.0",
-    "@types/jest": "^29.5.0",
-    "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.38.0",
-    "@typescript-eslint/parser": "^8.38.0",
-    "autoprefixer": "^10.4.0",
-    "eslint": "^9.31.0",
-    "eslint-config-prettier": "^10.1.8",
-    "jest": "^29.5.0",
-    "jest-cli": "^29.5.0",
-    "lit": "^3.0.0",
-    "postcss": "^8.4.0",
-    "postcss-nesting": "^13.0.2",
-    "puppeteer": "^21.0.0",
-    "storybook": "^7.6.0",
-    "tailwindcss": "^3.4.0",
-    "typescript": "^5.0.0",
-    "vite": "^5.0.0"
-  },
-  "license": "MIT",
-  "keywords": [
-    "design-system",
-    "web-components",
-    "stencil",
-    "ui-library",
-    "components"
-  ]
+    "lerna": "^8.2.3"
+  }
 }
