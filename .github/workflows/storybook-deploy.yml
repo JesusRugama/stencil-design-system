@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - "packages/stencil-design-system/**"
-
+      - ".github/workflows/storybook-deploy.yml"
 env:
   AWS_REGION: us-east-1
   S3_BUCKET: stencil-design-system-storybook
