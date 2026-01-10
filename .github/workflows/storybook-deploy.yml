@@ -6,6 +6,11 @@ on:
     paths:
       - "packages/stencil-design-system/**"
 
+env:
+  AWS_REGION: us-east-1
+  S3_BUCKET: stencil-design-system-storybook
+  CLOUDFRONT_DISTRIBUTION_ID: EQD4LYJHNW9FV
+
 jobs:
   deploy:
     name: Build and Deploy to S3
@@ -16,6 +21,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::464624688884:role/jesusrugama-sites-github-actions-role
+          aws-region: ${{ env.AWS_REGION }}
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -32,18 +43,11 @@ jobs:
 
       - name: Build storybook
         run: npm run build-storybook
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
       
       - name: Sync to S3 bucket
         run: |
-          aws s3 sync storybook-static/ s3://stencil-design-system-storybook/ --delete
+          aws s3 sync storybook-static/ s3://${{ env.S3_BUCKET }}/ --delete
       
       - name: Invalidate CloudFront cache
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+          aws cloudfront create-invalidation --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
