@@ -15,6 +15,9 @@ jobs:
   deploy:
     name: Build and Deploy to S3
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     defaults:
       run:
         working-directory: packages/stencil-design-system
